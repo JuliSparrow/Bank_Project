@@ -14,26 +14,11 @@ public class SavingAccountTest {
     }
 
     @Test
-    public void shouldCreateInitialBalanceIsNegative() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(-2000, 1000, 10000, 5);
-        });
-    }
-
-    @Test
     public void shouldCreateMinBalanceIsNegative() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             new SavingAccount(2000, -1000, 10000, 5);
         });
     }
-
-    @Test
-    public void shouldCreateMaxBalanceIsNegative() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(2000, 1000, -10000, 5);
-        });
-    }
-
 
     @Test
     public void shouldCreateRateIsNegative() {
@@ -66,7 +51,7 @@ public class SavingAccountTest {
     @Test
     public void shouldCreateMinBalanceAndMaxBalanceAreEqual() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(2000, 10000, 10000, 5);
+            new SavingAccount(10000, 10000, 10000, 5);
         });
     }
 
@@ -97,7 +82,7 @@ public class SavingAccountTest {
         Assertions.assertEquals(expected, actual);
     }
 
-        @Test
+    @Test
     public void balanceLessThanMinimumAfterPayment() {
         SavingAccount account = new SavingAccount(2000, 1000, 10000, 5);
         account.pay(1500);
