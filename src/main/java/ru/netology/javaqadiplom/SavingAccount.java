@@ -70,6 +70,9 @@ public class SavingAccount extends Account {
         if (amount <= 0) {
             return false;
         }
+        if (balance - amount < minBalance) {
+            return false;
+        }
         balance = balance - amount;
         if (balance > minBalance) {
             return true;
