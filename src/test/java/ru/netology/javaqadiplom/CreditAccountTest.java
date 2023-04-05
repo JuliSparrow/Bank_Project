@@ -165,4 +165,10 @@ public class CreditAccountTest {
         Assertions.assertEquals(4_000, account.getBalance());
     }
 
+    @Test
+    public void shouldReturnCreditLimit() {
+        CreditAccount account = new CreditAccount(1_000, 5_000, 15);
+        Assertions.assertEquals(5_000, account.getCreditLimit());
+    }
+
 }
